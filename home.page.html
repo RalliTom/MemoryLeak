@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding:5px class="ion-text-center">MemoryLeak&trade;</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-note padding>Write down your important tasks and forget 'em</ion-note>
+  </ion-toolbar>
+
+
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="taskName" placeholder="Enter task"></ion-input>
+    <div class="item-note" item-end>
+      <ion-button (click)="addTask()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-item>
+</ion-header>
+<ion-content padding>
+  <div padding  id="memory_info">
+    <ion-list>
+      <ion-item *ngFor="let todo of taskList; let i = index" class="wrap item-text-wrap" style="word-wrap: break-word; word-break: break-all;">
+        {{todo}}
+        <div class="item-note" padding float-right>
+           
+          <ion-button  float-right (click)="updateTask(i)">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button  float-right (click)="deleteTask(i)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer>
+<div class="bar bar-footer bar-balanced">
+  <div class="ion-text-center">RAMA - Ralli & Martelius Production</div>
+</div>
+</ion-footer>
