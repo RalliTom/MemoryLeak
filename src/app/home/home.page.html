@@ -3,7 +3,7 @@
     <ion-title padding:5px class="ion-text-center">MemoryLeak&trade;</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-      <ion-note>Write down your important tasks and forget 'em</ion-note>
+    <ion-note padding>Write down your important tasks and forget 'em</ion-note>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -19,12 +19,12 @@
     <ion-list>
       <ion-item *ngFor="let todo of taskList; let i = index" class="wrap item-text-wrap" style="word-wrap: break-word; word-break: break-all;">
         {{todo}}
-        <div class="item-note" >
+        <div class="item-note" padding float-right>
            
-          <ion-button clear slot="end" (click)="updateTask(i)">
+          <ion-button  float-right (click)="updateTask(i)">
             <ion-icon name="create"></ion-icon>
           </ion-button>
-          <ion-button  (click)="deleteTask(i)">
+          <ion-button  float-right (click)="deleteTask(i)">
             <ion-icon name="trash"></ion-icon>
           </ion-button>
         </div>
