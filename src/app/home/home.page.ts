@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-
+import { StorageServiceModule} from 'angular-webstorage-service';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +11,31 @@ import { AlertController } from '@ionic/angular';
 export class HomePage {
   taskList = [];
   taskName: string;
-
-  constructor(public alertController: AlertController) { }
+  public data: any = [];
+  constructor(
+             // @Inject(LOCAL_STORAGE) private storage: WebStorageService,
+              public alertController: AlertController) { }
 
   addTask() {
     if (this.taskName.length > 0) {
       const task = this.taskName;
       this.taskList.push(task);
+     // this.saveInLocal(1, task);
       this.taskName = '';
     }
   }
 
+  // saveInLocal(key, val): void {
+  //  console.log('recieved= key:' + key + 'value:' + val);
+  //  this.storage.set(key, val);
+  //  this.data[key] = this.storage.get(key);
+  // }
+
+  // getFromLocal(key): void {
+  //  console.log('recieved= key:' + key);
+  //  this.data[key] = this.storage.get(key);
+  //  console.log(this.data);
+  // }
   async deleteTask(index) {
     const alert = await this.alertController.create({
       header: 'Delete Task?',
