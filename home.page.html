@@ -17,25 +17,30 @@
   </ion-item>
 </ion-header>
 <ion-content padding>
-  <div padding  id="memory_info">
+  <div padding id="memory_info">
     <ion-list>
-      <ion-item *ngFor="let todo of taskList; let i = index" class="wrap item-text-wrap" style="word-wrap: break-word; word-break: break-all;">
+      <ion-item *ngFor="let todo of taskList; let i = index" class="wrap item-text-wrap"
+        style="word-wrap: break-word; word-break: break-all;">
         {{todo}}
         <div class="item-note" padding float-right>
-           
-          <ion-button  float-right (click)="updateTask(i)">
+          <ion-button float-right color="clear">
+            <ion-checkbox color="success"></ion-checkbox>
+          </ion-button>
+          <ion-button float-right (click)="updateTask(i)">
             <ion-icon name="create"></ion-icon>
           </ion-button>
-          <ion-button  float-right (click)="deleteTask(i)">
+          <ion-button float-right (click)="deleteTask(i)">
             <ion-icon name="trash"></ion-icon>
           </ion-button>
+
         </div>
       </ion-item>
     </ion-list>
+
   </div>
 </ion-content>
 <ion-footer>
-<div class="bar bar-footer bar-balanced">
-  <div class="ion-text-center">RAMA - Ralli & Martelius Production</div>
-</div>
+  <div class="bar bar-footer bar-balanced">
+    <div class="ion-text-center">RAMA - Ralli & Martelius Production</div>
+  </div>
 </ion-footer>
